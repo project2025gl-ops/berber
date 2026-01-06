@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 5%;
+        --foreground: 40 20% 95%;
+
+        --card: 0 0% 8%;
+        --card-foreground: 40 20% 95%;
+
+        --popover: 0 0% 8%;
+        --popover-foreground: 40 20% 95%;
+
+        --primary: 43 74% 49%;
+        --primary-foreground: 0 0% 5%;
+
+        --secondary: 0 0% 12%;
+        --secondary-foreground: 40 20% 95%;
+
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 60%;
+
+        --accent: 43 74% 49%;
+        --accent-foreground: 0 0% 5%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 0 0% 18%;
+        --input: 0 0% 18%;
+        --ring: 43 74% 49%;
+
+        --radius: 0.25rem;
+
+        /* Custom tokens */
+        --gold: 43 74% 49%;
+        --gold-light: 43 74% 60%;
+        --gold-dark: 43 74% 40%;
+        --cream: 40 20% 95%;
+        --charcoal: 0 0% 8%;
+        --charcoal-light: 0 0% 12%;
+
+        /* Gradients */
+        --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(35 80% 45%) 100%);
+        --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
+        --gradient-overlay: linear-gradient(180deg, hsla(0, 0%, 0%, 0.7) 0%, hsla(0, 0%, 0%, 0.4) 50%, hsla(0, 0%, 0%, 0.8) 100%);
+
+        /* Shadows */
+        --shadow-gold: 0 4px 30px hsla(43, 74%, 49%, 0.3);
+        --shadow-dark: 0 10px 40px hsla(0, 0%, 0%, 0.5);
+
+        /* Typography */
+        --font-display: 'Oswald', sans-serif;
+        --font-body: 'Inter', sans-serif;
+
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 0 0% 5%;
+        --foreground: 40 20% 95%;
+        --card: 0 0% 8%;
+        --card-foreground: 40 20% 95%;
+        --popover: 0 0% 8%;
+        --popover-foreground: 40 20% 95%;
+        --primary: 43 74% 49%;
+        --primary-foreground: 0 0% 5%;
+        --secondary: 0 0% 12%;
+        --secondary-foreground: 40 20% 95%;
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 60%;
+        --accent: 43 74% 49%;
+        --accent-foreground: 0 0% 5%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 0 0% 18%;
+        --input: 0 0% 18%;
+        --ring: 43 74% 49%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-foreground font-body antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-display tracking-wide;
+    }
+}
+
+@layer components {
+    .section-padding {
+        @apply px-6 py-20 md:px-12 lg:px-20 lg:py-28;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto;
+    }
+
+    .text-gradient-gold {
+        @apply bg-clip-text text-transparent;
+        background-image: var(--gradient-gold);
+    }
+
+    .border-gradient-gold {
+        border-image: var(--gradient-gold) 1;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-display text-sm uppercase tracking-widest transition-all duration-300 hover:shadow-[var(--shadow-gold)] hover:scale-105;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-display text-sm uppercase tracking-widest transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+    }
+
+    .card-service {
+        @apply bg-card border border-border p-8 transition-all duration-500 hover:border-primary hover:shadow-[var(--shadow-gold)];
+    }
+
+    .card-testimonial {
+        @apply bg-card border border-border p-8 relative;
+    }
+
+    .nav-link {
+        @apply text-foreground/70 font-body text-sm uppercase tracking-widest transition-colors duration-300 hover:text-primary relative;
+    }
+
+    .nav-link::after {
+        @apply content-[''] absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300;
+    }
+
+    .nav-link:hover::after {
+        @apply w-full;
+    }
+
+    .section-title {
+        @apply font-display text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider;
+    }
+
+    .section-subtitle {
+        @apply text-primary font-display text-sm uppercase tracking-[0.3em] mb-4;
+    }
+
+    .divider-gold {
+        @apply w-20 h-px bg-primary mx-auto my-8;
+    }
+}
+
+@layer utilities {
+    .animate-fade-up {
+        animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .animate-scale-in {
+        animation: scaleIn 0.5s ease-out forwards;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    .animation-delay-600 {
+        animation-delay: 600ms;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
